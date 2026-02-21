@@ -1,0 +1,1690 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumina Dental Studio — Experience Dentistry Reimagined</title>
+  <meta name="description"
+    content="Lumina Dental Studio offers world-class dental care with pain-free treatments, modern equipment, and transparent pricing. Book your appointment today.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --blue-primary: #2563EB;
+      --blue-dark: #1E40AF;
+      --blue-light: #3B82F6;
+      --blue-50: #EFF6FF;
+      --blue-100: #DBEAFE;
+      --blue-200: #BFDBFE;
+      --blue-600: #2563EB;
+      --blue-700: #1D4ED8;
+      --blue-800: #1E40AF;
+      --blue-900: #1E3A5F;
+      --text-dark: #0F172A;
+      --text-gray: #64748B;
+      --text-light: #94A3B8;
+      --bg-gray: #F8FAFC;
+      --white: #FFFFFF;
+      --orange: #F97316;
+      --orange-light: #FFF7ED;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-dark);
+      overflow-x: hidden;
+      line-height: 1.6;
+      background: var(--white);
+    }
+
+    /* ====== NAVBAR ====== */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 48px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: transparent;
+      border-bottom: 1px solid transparent;
+      transition: background 0.4s ease, box-shadow 0.3s ease, border-color 0.4s ease;
+    }
+
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+      border-bottom-color: rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .nav-logo-text {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      transition: color 0.4s ease;
+    }
+
+    .navbar.scrolled .nav-logo-text {
+      color: var(--text-dark);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 15px;
+      font-weight: 500;
+      transition: color 0.25s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    .nav-links a.active {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .navbar.scrolled .nav-links a {
+      color: var(--text-gray);
+    }
+
+    .navbar.scrolled .nav-links a:hover,
+    .navbar.scrolled .nav-links a.active {
+      color: var(--text-dark);
+    }
+
+    .nav-cta {
+      padding: 10px 24px;
+      background: var(--blue-primary);
+      color: var(--white) !important;
+      border-radius: 24px;
+      font-weight: 600 !important;
+      font-size: 14px !important;
+      transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--blue-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+    }
+
+    /* ====== HERO ====== */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .hero-bg-image {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-bg-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-bg-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 40, 100, 0.35) 60%, rgba(0, 30, 80, 0.55) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1280px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 48px 0;
+    }
+
+    .hero-text {
+      padding-bottom: 32px;
+    }
+
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 72px;
+      font-weight: 700;
+      line-height: 1.08;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      text-shadow: 0 2px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero-text h1 .hero-line {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .hero-inset-img {
+      width: 160px;
+      height: 80px;
+      border-radius: 40px;
+      object-fit: cover;
+      display: inline-block;
+      vertical-align: middle;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero-tooth {
+      display: inline-block;
+      font-size: 60px;
+      vertical-align: middle;
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+    }
+
+    .hero-text .hero-subtitle {
+      font-size: 20px;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 400;
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    .hero-bottom-bar {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 48px;
+      background: linear-gradient(180deg, transparent 0%, rgba(0, 20, 60, 0.5) 100%);
+    }
+
+    .hero-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 40px;
+      background: var(--blue-primary);
+      color: var(--white);
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 24px rgba(37, 99, 235, 0.35);
+      text-decoration: none;
+    }
+
+    .hero-cta-btn:hover {
+      background: var(--blue-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(37, 99, 235, 0.45);
+    }
+
+    .hero-explore {
+      position: absolute;
+      right: 48px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+
+    .hero-explore:hover {
+      color: var(--white);
+    }
+
+    .hero-explore svg {
+      width: 14px;
+      height: 14px;
+      transition: transform 0.25s ease;
+    }
+
+    .hero-explore:hover svg {
+      transform: translate(2px, -2px);
+    }
+
+    /* Divider line before explore */
+    .hero-bottom-bar::before {
+      content: '';
+      position: absolute;
+      right: 180px;
+      top: 50%;
+      width: calc(50% - 280px);
+      height: 1px;
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-50%);
+    }
+
+    /* ====== WHY CHOOSE ====== */
+    .why-choose {
+      padding: 100px 48px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .why-choose-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .why-choose-images {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .why-choose-images img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 16px;
+      transition: transform 0.3s ease;
+    }
+
+    .why-choose-images img:hover {
+      transform: scale(1.03);
+    }
+
+    .why-choose-text h2 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .why-choose-text h2 span {
+      color: var(--blue-primary);
+    }
+
+    .why-choose-text p {
+      color: var(--text-gray);
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .learn-more-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--blue-primary);
+      font-weight: 600;
+      font-size: 16px;
+      text-decoration: none;
+      transition: gap 0.3s ease;
+    }
+
+    .learn-more-link:hover {
+      gap: 10px;
+    }
+
+    /* ====== THE LUMINA DIFFERENCE ====== */
+    .lumina-diff {
+      padding: 80px 48px;
+      background: linear-gradient(180deg, #EFF6FF 0%, #DBEAFE 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .lumina-diff h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 56px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .lumina-diff h2 span {
+      display: block;
+    }
+
+    .lumina-diff-content {
+      position: relative;
+      max-width: 1100px;
+      margin: 40px auto 0;
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .diff-image {
+      width: 100%;
+      max-width: 900px;
+      border-radius: 24px;
+      object-fit: cover;
+      box-shadow: 0 16px 60px rgba(0, 0, 0, 0.1);
+    }
+
+    .diff-tag {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-dark);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+      white-space: nowrap;
+    }
+
+    .diff-tag:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 28px rgba(0, 0, 0, 0.15);
+    }
+
+    .diff-tag .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--blue-primary);
+      flex-shrink: 0;
+    }
+
+    .tag-1 {
+      top: 15%;
+      left: 5%;
+    }
+
+    .tag-2 {
+      top: 30%;
+      right: 3%;
+    }
+
+    .tag-3 {
+      top: 55%;
+      left: 2%;
+    }
+
+    .tag-4 {
+      bottom: 20%;
+      right: 5%;
+    }
+
+    .tag-5 {
+      bottom: 10%;
+      left: 15%;
+    }
+
+    /* ====== SERVICES ====== */
+    .services {
+      padding: 100px 48px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .services-left .subtitle {
+      color: var(--blue-primary);
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    .services-left h2 {
+      font-size: 44px;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+    }
+
+    .services-left h2 span {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 700;
+    }
+
+    .view-all-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: var(--blue-primary);
+      color: var(--white);
+      border: none;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .view-all-btn:hover {
+      background: var(--blue-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+    }
+
+    .services-right {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .service-card {
+      padding: 28px 32px;
+      background: var(--white);
+      border: 1px solid #E2E8F0;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover {
+      border-color: var(--blue-200);
+      box-shadow: 0 8px 32px rgba(37, 99, 235, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .service-card.featured {
+      background: var(--blue-primary);
+      border-color: var(--blue-primary);
+      color: var(--white);
+    }
+
+    .service-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .service-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .service-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .service-card.featured h3 {
+      color: var(--white);
+    }
+
+    .service-card p {
+      color: var(--text-gray);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .service-card.featured p {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .service-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 6px;
+    }
+
+    /* ====== TESTIMONIALS ====== */
+    .testimonials {
+      padding: 100px 48px;
+      background: var(--bg-gray);
+    }
+
+    .testimonials-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .testimonials-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+      border: 1px solid #F1F5F9;
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .stars {
+      display: flex;
+      gap: 2px;
+      margin-bottom: 10px;
+    }
+
+    .star {
+      color: #F59E0B;
+      font-size: 14px;
+    }
+
+    .testimonial-card blockquote {
+      font-size: 14px;
+      color: var(--text-gray);
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .testimonial-author img {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .testimonial-author-info h4 {
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .testimonial-author-info p {
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    .testimonials-right h2 {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .testimonials-right h2 span {
+      color: var(--blue-primary);
+    }
+
+    .testimonials-right p {
+      color: var(--text-gray);
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    .read-stories-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: transparent;
+      color: var(--blue-primary);
+      border: 2px solid var(--blue-primary);
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .read-stories-btn:hover {
+      background: var(--blue-primary);
+      color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+    }
+
+    /* ====== CTA BANNER ====== */
+    .cta-banner {
+      padding: 0 48px;
+      margin: 40px auto;
+      max-width: 1280px;
+    }
+
+    .cta-banner-inner {
+      position: relative;
+      border-radius: 32px;
+      overflow: hidden;
+      padding: 80px 60px;
+      background: linear-gradient(135deg, #1E3A5F 0%, #1E40AF 50%, #2563EB 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 380px;
+    }
+
+    .cta-banner-bg-img {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .cta-banner-bg-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.3;
+    }
+
+    .cta-banner-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-banner-content .ready {
+      color: var(--orange);
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .cta-banner-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .cta-banner-content p {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 16px;
+      max-width: 480px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-book {
+      padding: 14px 32px;
+      background: var(--white);
+      color: var(--text-dark);
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-book:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-call {
+      padding: 14px 32px;
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-call:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.7);
+      transform: translateY(-2px);
+    }
+
+    /* Floating 3D teeth on CTA */
+    .cta-tooth-left,
+    .cta-tooth-right {
+      position: absolute;
+      z-index: 1;
+      font-size: 120px;
+      opacity: 0.15;
+      filter: blur(1px);
+    }
+
+    .cta-tooth-left {
+      left: 40px;
+      bottom: 20px;
+      transform: rotate(-15deg);
+    }
+
+    .cta-tooth-right {
+      right: 60px;
+      top: 20px;
+      transform: rotate(10deg);
+    }
+
+    /* ====== FOOTER ====== */
+    .footer {
+      padding: 60px 48px 32px;
+      border-top: 1px solid #E2E8F0;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1.5fr;
+      gap: 60px;
+      margin-bottom: 48px;
+    }
+
+    .footer-col h4 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--text-dark);
+    }
+
+    .footer-col p {
+      color: var(--text-gray);
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .footer-newsletter {
+      display: flex;
+      gap: 8px;
+    }
+
+    .footer-newsletter input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 1px solid #E2E8F0;
+      border-radius: 10px;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.25s ease;
+      font-family: inherit;
+    }
+
+    .footer-newsletter input:focus {
+      border-color: var(--blue-primary);
+    }
+
+    .footer-newsletter button {
+      padding: 12px 20px;
+      background: var(--blue-primary);
+      color: var(--white);
+      border: none;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.25s ease;
+    }
+
+    .footer-newsletter button:hover {
+      background: var(--blue-dark);
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      color: var(--text-gray);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.25s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--blue-primary);
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-gray);
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .footer-contact-item svg {
+      width: 18px;
+      height: 18px;
+      color: var(--blue-primary);
+      flex-shrink: 0;
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 24px;
+      border-top: 1px solid #E2E8F0;
+    }
+
+    .footer-bottom-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-bottom-left svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .footer-bottom-left span {
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--text-dark);
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer-socials a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--bg-gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-gray);
+      transition: all 0.25s ease;
+      text-decoration: none;
+    }
+
+    .footer-socials a:hover {
+      background: var(--blue-primary);
+      color: var(--white);
+    }
+
+    .footer-copyright {
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    /* ====== ANIMATIONS ====== */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-text,
+    .hero-image {
+      animation: fadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .hero-image {
+      animation-delay: 0.2s;
+    }
+
+    /* ====== MOBILE MENU ====== */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 1001;
+    }
+
+    .mobile-menu-btn span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text-dark);
+      margin: 6px 0;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .mobile-menu {
+      display: none;
+    }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 1024px) {
+      .navbar {
+        padding: 16px 24px;
+      }
+
+      .hero {
+        padding: 120px 24px 40px;
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+      }
+
+      .hero-text h1 {
+        font-size: 56px;
+      }
+
+      .hero-inset-img {
+        width: 120px;
+        height: 60px;
+      }
+
+      .hero-tooth {
+        font-size: 48px;
+      }
+
+      .hero-text p {
+        margin: 0 auto 32px;
+      }
+
+      .hero-image img {
+        max-width: 400px;
+      }
+
+      .why-choose {
+        padding: 60px 24px;
+      }
+
+      .why-choose-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .lumina-diff {
+        padding: 60px 24px;
+      }
+
+      .lumina-diff h2 {
+        font-size: 40px;
+      }
+
+      .services {
+        padding: 60px 24px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .services-left h2 {
+        font-size: 36px;
+      }
+
+      .testimonials {
+        padding: 60px 24px;
+      }
+
+      .testimonials-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .cta-banner {
+        padding: 0 24px;
+      }
+
+      .cta-banner-content h2 {
+        font-size: 36px;
+      }
+
+      .footer {
+        padding: 40px 24px 24px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .mobile-menu.open {
+        display: flex;
+        position: fixed;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        z-index: 999;
+      }
+
+      .mobile-menu.open a {
+        font-size: 22px;
+        font-weight: 600;
+        color: var(--text-dark);
+        text-decoration: none;
+        transition: color 0.25s ease;
+      }
+
+      .mobile-menu.open a:hover {
+        color: var(--blue-primary);
+      }
+
+      .hero-text h1 {
+        font-size: 40px;
+        line-height: 1.2;
+      }
+
+      .hero-line {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .hero-inset-img {
+        width: 90px;
+        height: 45px;
+      }
+
+      .hero-tooth {
+        font-size: 32px;
+      }
+
+      .hero-text .hero-subtitle {
+        font-size: 16px;
+      }
+
+      .hero-bottom-bar {
+        padding: 24px;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .hero-bottom-bar::before {
+        display: none;
+      }
+
+      .hero-explore {
+        position: static;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+        position: fixed;
+        top: 16px;
+        right: 16px;
+      }
+
+      .mobile-menu-btn span {
+        background: var(--white);
+      }
+
+      .navbar.scrolled .mobile-menu-btn span {
+        background: var(--text-dark);
+      }
+
+      .diff-tag {
+        font-size: 12px;
+        padding: 8px 16px;
+      }
+
+      .tag-1 {
+        left: 0;
+      }
+
+      .tag-2 {
+        right: 0;
+      }
+
+      .tag-3 {
+        left: 0;
+      }
+
+      .tag-4 {
+        right: 0;
+      }
+
+      .tag-5 {
+        left: 5%;
+      }
+
+      .cta-banner-content h2 {
+        font-size: 28px;
+      }
+
+      .cta-banner-inner {
+        padding: 60px 24px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ====== NAVBAR ====== -->
+  <nav class="navbar" id="navbar">
+    <a href="#" class="nav-logo">
+      <img src="brand_assets/logo teeth.png" alt="Lumina Dental Studio"
+        class="h-8 transition-transform duration-300 hover:scale-105">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#about">About us</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+    <button class="mobile-menu-btn" onclick="document.getElementById('mobileMenu').classList.toggle('open')"
+      aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#" onclick="this.parentElement.classList.remove('open')">Home</a>
+    <a href="#about" onclick="this.parentElement.classList.remove('open')">About us</a>
+    <a href="#services" onclick="this.parentElement.classList.remove('open')">Services</a>
+    <a href="#team" onclick="this.parentElement.classList.remove('open')">Team</a>
+    <a href="#faq" onclick="this.parentElement.classList.remove('open')">FAQ</a>
+    <a href="#contact" onclick="this.parentElement.classList.remove('open')">Contact</a>
+  </div>
+
+  <!-- ====== HERO SECTION ====== -->
+  <section class="hero" id="home">
+    <div class="hero-bg-image">
+      <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1920"
+        alt="Experience Dentistry Reimagined">
+    </div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>
+          <span class="hero-line">Experience</span>
+          <span class="hero-line">
+            <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=200&h=100&fit=crop&crop=face"
+              class="hero-inset-img" alt="Dental Care">
+            Dentistry
+          </span>
+          <span class="hero-line">Reimagined <span class="hero-tooth">🦷</span></span>
+        </h1>
+        <p class="hero-subtitle">Your Journey to Confidence Starts Here</p>
+      </div>
+    </div>
+    <div class="hero-bottom-bar">
+      <a href="#contact" class="hero-cta-btn">Book Your Appointment</a>
+      <a href="#services" class="hero-explore">
+        Explore Solutions
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="M7 17L17 7M17 7H7M17 7V17" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ====== WHY CHOOSE ====== -->
+  <section class="why-choose animate-on-scroll" id="about">
+    <div class="why-choose-grid">
+      <div class="why-choose-images">
+        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=400&h=300&fit=crop"
+          alt="Beautiful Confident Smile" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=400&h=300&fit=crop"
+          alt="Friendly Dentist Smiling" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1603654983938-a3ac86145bd2?w=400&h=300&fit=crop"
+          alt="Modern Dental Setup" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=300&fit=crop"
+          alt="Radiant Patient Smile" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1611690061822-b707a67bfebb?w=400&h=300&fit=crop"
+          alt="Luxury Dental Clinic" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1590664216119-e58721321528?w=400&h=300&fit=crop"
+          alt="Expert Smile Design" loading="lazy">
+      </div>
+      <div class="why-choose-text">
+        <h2>Why Choose<br><span>Lumina Studio</span>?</h2>
+        <p>We believe dental care should be relaxing, not stressful. Our team of experts uses the latest techniques to
+          ensure your comfort and health comes first.</p>
+        <a href="#services" class="learn-more-link">
+          Learn more
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== THE LUMINA DIFFERENCE ====== -->
+  <section class="lumina-diff animate-on-scroll">
+    <h2><span>The Lumina</span><span>Difference</span></h2>
+    <div class="lumina-diff-content">
+      <img class="diff-image" src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=1000&h=600&fit=crop"
+        alt="Lumina Dental team at work" loading="lazy">
+      <div class="diff-tag tag-1">
+        <span class="dot"></span>
+        World-Class Specialists
+      </div>
+      <div class="diff-tag tag-2">
+        <span class="dot" style="background:#10B981;"></span>
+        Pain-Free Treatments
+      </div>
+      <div class="diff-tag tag-3">
+        <span class="dot" style="background:#8B5CF6;"></span>
+        State-of-the-Art Tech
+      </div>
+      <div class="diff-tag tag-4">
+        <span class="dot" style="background:#F59E0B;"></span>
+        Modern Equipment & Technology
+      </div>
+      <div class="diff-tag tag-5">
+        <span class="dot" style="background:#EF4444;"></span>
+        Transparent Pricing
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== SERVICES ====== -->
+  <section class="services animate-on-scroll" id="services">
+    <div class="services-grid">
+      <div class="services-left">
+        <p class="subtitle">Our Expertise</p>
+        <h2>Comprehensive<br>Care for <span>Optimal<br>Health</span></h2>
+        <a href="#" class="view-all-btn">
+          View All Services
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+      <div class="services-right">
+        <!-- Preventive Care -->
+        <div class="service-card">
+          <div class="service-card-header">
+            <div class="service-icon" style="background:#EFF6FF;">🛡️</div>
+            <h3>Preventive Care</h3>
+          </div>
+          <p>Keep your smile healthy with checkups, cleanings, and preventive dental exams, available any time.</p>
+        </div>
+        <!-- 24/7 Emergency Care (Featured) -->
+        <div class="service-card featured">
+          <div style="margin-bottom: 6px;">
+            <span class="service-badge" style="background:rgba(255,255,255,0.2);color:#fff;">24/7 Emergency Care</span>
+          </div>
+          <p>Fast and reliable treatment for pain, injury and unexpected dental issues, available any time.</p>
+        </div>
+        <!-- Cosmetic Dentistry -->
+        <div class="service-card">
+          <div class="service-card-header">
+            <div class="service-icon" style="background:#FFF7ED;">✨</div>
+            <h3>Cosmetic Dentistry</h3>
+          </div>
+          <p>Enhance your appearance with professional whitening, veneers, and leading procedures for a radiant look.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== TESTIMONIALS ====== -->
+  <section class="testimonials animate-on-scroll" id="testimonials">
+    <div class="testimonials-inner">
+      <div class="testimonials-cards">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+          <div class="stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span
+              class="star">★</span><span class="star">★</span>
+          </div>
+          <blockquote>"Lumina transformed my smile! I feel so much more confident now. Highly recommended!"</blockquote>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+              alt="Michael Ross">
+            <div class="testimonial-author-info">
+              <h4>Michael Ross</h4>
+              <p>Dental Implants · 6 months ago</p>
+            </div>
+          </div>
+        </div>
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card">
+          <div class="stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span
+              class="star">★</span><span class="star">★</span>
+          </div>
+          <blockquote>"The Best Dental Experience I've Ever Had. The Staff Was Incredibly Friendly And The Procedure Was
+            Painless."</blockquote>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face"
+              alt="Sarah Jenkins">
+            <div class="testimonial-author-info">
+              <h4>Sarah Jenkins</h4>
+              <p>Cosmetic Consultation · 2 Weeks Ago</p>
+            </div>
+          </div>
+        </div>
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card">
+          <div class="stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span
+              class="star">★</span><span class="star">★</span>
+          </div>
+          <blockquote>"Dr. Layla is fantastic! I was nervous about my procedure, but the team made me feel completely
+            comfortable."</blockquote>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face"
+              alt="David Chen">
+            <div class="testimonial-author-info">
+              <h4>David Chen</h4>
+              <p>Root Canal Therapy · 3 months ago</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonials-right">
+        <h2>Stories From<br>Our <span>Happy<br>Patients</span></h2>
+        <p>Don't just take our word for it. Here is what our community has to say.</p>
+        <a href="#" class="read-stories-btn">
+          Read More Stories
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CTA BANNER ====== -->
+  <section class="cta-banner animate-on-scroll">
+    <div class="cta-banner-inner">
+      <div class="cta-banner-bg-img">
+        <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=1200&h=500&fit=crop"
+          alt="Dental background">
+      </div>
+      <span class="cta-tooth-left">🦷</span>
+      <span class="cta-tooth-right">🦷</span>
+      <div class="cta-banner-content">
+        <p class="ready">Ready to Shine?</p>
+        <h2>Your New Smile<br>Awaits!</h2>
+        <p>Schedule your consultation today and take the first step towards perfect oral health.</p>
+        <div class="cta-buttons">
+          <a href="#contact" class="btn-book">📅 Book Appointment</a>
+          <a href="tel:+15551234567" class="btn-call">📞 Call Us Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer" id="contact">
+    <div class="footer-top">
+      <div class="footer-col">
+        <h4>Stay Connected</h4>
+        <p>Join our newsletter for dental tips and exclusive offers.</p>
+        <div class="footer-newsletter">
+          <input type="email" placeholder="Enter your email..." aria-label="Email address">
+          <button>Join</button>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick links</h4>
+        <ul class="footer-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          <span>123 Wellness Blvd, New York, NY</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path
+              d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+          </svg>
+          <span>(555) 123-4567</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg>
+          <span>hello@luminastudio.com</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+          </svg>
+          <span>Mon-Sat, 8:00 AM – 6:00 PM</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        <svg viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="16" r="14" fill="#2563EB" />
+          <path d="M11 10c0-1 1-3 5-3s5 2 5 3c0 2-1 4-2 6s-1.5 5-3 5-2-3-3-5-2-4-2-6z" fill="white" />
+        </svg>
+        <span>Lumina</span>
+      </div>
+      <div class="footer-socials">
+        <a href="#" aria-label="Facebook">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+          </svg>
+        </a>
+        <a href="#" aria-label="Twitter">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+          </svg>
+        </a>
+        <a href="#" aria-label="Google">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
+            <path
+              d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+            <path
+              d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+            <path
+              d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+          </svg>
+        </a>
+      </div>
+      <p class="footer-copyright">© 2025 Lumina Dental Studio. Design and Develop by <strong>aminestudio.ir</strong></p>
+    </div>
+  </footer>
+
+  <!-- ====== JS ====== -->
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Intersection Observer for scroll animations
+    const observerCallback = (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -60px 0px'
+    });
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
